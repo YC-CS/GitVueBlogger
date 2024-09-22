@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"gvb_server/config"
 	"gvb_server/global"
-	"io/ioutil"
 	"log"
+	"os"
 )
 
-// InitConf 读取yaml文件的配置
+// InitConf 读取json文件的配置
 func InitConf() {
 	const ConfigFile = "settings.json"
 	c := &config.Config{}
-	jsonConfig, err := ioutil.ReadFile(ConfigFile)
+	jsonConfig, err := os.ReadFile(ConfigFile)
 	if err != nil {
 		panic(fmt.Errorf("get jsonConfig error: %s", err))
 	}
